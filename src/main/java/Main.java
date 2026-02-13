@@ -25,11 +25,12 @@ public class Main {
 		Condutor condutor1 = new Condutor(
 				1,
 				"395.119.508",
-				Date.valueOf("1994-03-10"),
-				"111111111",
+				"Gilson Andrei Oliveira SIlva",
+				Date.valueOf("2026-03-10"),
+				"123456",
 				"AB",
 				Date.valueOf("2026-03-10")
-				"Gilson Andrei Oliveira Silva",
+
 		);
 
 		Condutor condutor2 = new Condutor(
