@@ -107,10 +107,10 @@ public class Main {
 		Evento evento4 = new EventoManutencao(
 				Date.valueOf("2020-01-01"),
 				"CHEFE DO OLEO",
-				"Revisão preventiva",
+				"Revisão",
 				veiculo1,
 				1250.0,
-				"Troca de óleo, filtros e verificação geral"
+				"Serviços teste"
 		);
 
 		Evento evento5 = new EventoSinistro(
