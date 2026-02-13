@@ -25,20 +25,20 @@ public class Main {
 		Condutor condutor1 = new Condutor(
 				1,
 				"395.119.508",
-				"João Silva",
 				Date.valueOf("1994-03-10"),
-				"CNH123456",
-				"B",
+				"111111111",
+				"AB",
 				Date.valueOf("2026-03-10")
+				"Gilson Andrei Oliveira Silva",
 		);
 
 		Condutor condutor2 = new Condutor(
 				2,
-				"987.654.321-00",
-				"Maria Souza",
+				"123.456.789-00",
+				"Ana Paula Cardoso",
 				Date.valueOf("2002-03-10"),
-				"CNH999888",
-				"D",
+				"2222222222",
+				"FG",
 				Date.valueOf("2002-03-10")
 		);
 
@@ -51,20 +51,20 @@ public class Main {
 				101,
 				Date.valueOf("2026-01-01"),
 				2022,
-				"ABC-1D23",
-				"Fiat Strada",
+				"QTK-4242",
+				"ONIX PLUS 1.0",
 				TipoControle.QUILOMETROS,
-				45230.5
+				59600.69
 		);
 
 		Veiculo veiculo2 = new Veiculo(
 				102,
 				Date.valueOf("2020-01-01"),
 				2020,
-				"XYZ-9Z99",
-				"Trator X",
+				"ABC-9999",
+				"CAÇAMBA",
 				TipoControle.HORAS,
-				1287.0
+				25000.00
 		);
 
 		//Exibir Condutores
@@ -75,7 +75,7 @@ public class Main {
 		Evento evento1 = new EventoEntradaSaida(
 				Date.valueOf("2020-01-01"),
 				"Garagem",
-				"Saída para rota de entregas",
+				"SAÍDA DE TESTE",
 				veiculo1,
 				TipoMovimento.SAIDA,
 				condutor1
@@ -83,19 +83,19 @@ public class Main {
 
 		Evento evento2 = new EventoMulta(
 				Date.valueOf("2020-01-01"),
-				"Av. Central",
-				"Excesso de velocidade",
+				"JOSE MACHADO",
+				"MULTA DE TESTES",
 				veiculo2,
 				condutor1,
 				TipoInfracao.GRAVE,
 				5,
-				195.23
+				295.00
 		);
 
 		Evento evento3 = new EventoAbastecimento(
 				Date.valueOf("2020-01-01"),
-				"Posto Shell",
-				"Abastecimento completo",
+				"POSTO DE TESTE",
+				"TANQUE CHEIO",
 				veiculo2,
 				46010.0,
 				TipoCombustivel.GASOLINA,
@@ -105,7 +105,7 @@ public class Main {
 
 		Evento evento4 = new EventoManutencao(
 				Date.valueOf("2020-01-01"),
-				"Oficina do Zé",
+				"CHEFE DO OLEO",
 				"Revisão preventiva",
 				veiculo1,
 				1250.0,
@@ -114,13 +114,13 @@ public class Main {
 
 		Evento evento5 = new EventoSinistro(
 				Date.valueOf("2020-01-01"),
-				"Rodovia BR-101",
-				"Colisão leve na lateral",
+				"RODOVIA BEIRA MAR",
+				"BATIDA DE FRENTE",
 				veiculo2,
 				condutor2,
 				false,
 				true,
-				"Laudo: danos na porta direita; terceiro envolvido acionou seguro."
+				"Laudo: PT"
 		);
 
 		// Lista genérica do tipo Evento e nela atribuida X tipos de eventos (Evento Sinistro, Multa etc)
