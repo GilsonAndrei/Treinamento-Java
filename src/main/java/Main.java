@@ -18,12 +18,13 @@ import condutores.models.evento.EventoSinistro;
 /**
  * @author Gilson Andrei Oliveira SIlva (gilson.silva@publicatecnologia.com.br)
  */
+
 public class Main {
 	public static void main(String[] args) {
 
 		// Condutores
 		Condutor condutor1 = new Condutor(
-				1,
+				1L,
 				"395.119.508",
 				"Gilson Andrei Oliveira SIlva",
 				Date.valueOf("2026-03-10"),
@@ -34,41 +35,38 @@ public class Main {
 		);
 
 		Condutor condutor2 = new Condutor(
-				2,
+				2L,
 				"123.456.789-00",
 				"Ana Paula Cardoso",
 				Date.valueOf("2002-03-10"),
 				"2222222222",
 				"FG",
-				Date.valueOf("2002-03-10")
-		);
+				Date.valueOf("2002-03-10"));
 
-		//Exibir Condutores
+		// Exibir Condutores
 		condutor1.exibirDetalhes();
 		condutor2.exibirDetalhes();
 
 		// 2) Criar Veículos
 		Veiculo veiculo1 = new Veiculo(
-				101,
+				101L,
 				Date.valueOf("2026-01-01"),
 				2022,
 				"QTK-4242",
 				"ONIX PLUS 1.0",
 				TipoControle.QUILOMETROS,
-				59600.69
-		);
+				59600.69);
 
 		Veiculo veiculo2 = new Veiculo(
-				102,
+				102L,
 				Date.valueOf("2020-01-01"),
 				2020,
 				"ABC-9999",
 				"CAÇAMBA",
 				TipoControle.HORAS,
-				25000.00
-		);
+				25000.00);
 
-		//Exibir Condutores
+		// Exibir Condutores
 		veiculo1.exibirDetalhes();
 		veiculo1.exibirDetalhes();
 
@@ -79,8 +77,7 @@ public class Main {
 				"SAÍDA DE TESTE",
 				veiculo1,
 				TipoMovimento.SAIDA,
-				condutor1
-		);
+				condutor1);
 
 		Evento evento2 = new EventoMulta(
 				Date.valueOf("2020-01-01"),
@@ -90,8 +87,7 @@ public class Main {
 				condutor1,
 				TipoInfracao.GRAVE,
 				5,
-				295.00
-		);
+				295.00);
 
 		Evento evento3 = new EventoAbastecimento(
 				Date.valueOf("2020-01-01"),
@@ -101,8 +97,7 @@ public class Main {
 				46010.0,
 				TipoCombustivel.GASOLINA,
 				6.19,
-				42.5
-		);
+				42.5);
 
 		Evento evento4 = new EventoManutencao(
 				Date.valueOf("2020-01-01"),
@@ -110,8 +105,7 @@ public class Main {
 				"Revisão",
 				veiculo1,
 				1250.0,
-				"Serviços teste"
-		);
+				"Serviços teste");
 
 		Evento evento5 = new EventoSinistro(
 				Date.valueOf("2020-01-01"),
@@ -121,10 +115,10 @@ public class Main {
 				condutor2,
 				false,
 				true,
-				"Laudo: PT"
-		);
+				"Laudo: PT");
 
-		// Lista genérica do tipo Evento e nela atribuida X tipos de eventos (Evento Sinistro, Multa etc)
+		// Lista genérica do tipo Evento e nela atribuida X tipos de eventos (Evento
+		// Sinistro, Multa etc)
 		List<Evento> eventos = new ArrayList<>();
 		eventos.add(evento1);
 		eventos.add(evento2);
@@ -138,7 +132,8 @@ public class Main {
 		System.out.println("########################################");
 
 		for (Evento evento : eventos) {
-			evento.exibirDetalhes();//Exibir detalhes irá chamar de acordo com o tipo passado, exemplo se for multa chama da MUlta, se for sinistro chama o do sinistro
+			evento.exibirDetalhes();// Exibir detalhes irá chamar de acordo com o tipo passado, exemplo se for multa
+			// chama da Multa, se for sinistro chama o do sinistro
 		}
 	}
 }

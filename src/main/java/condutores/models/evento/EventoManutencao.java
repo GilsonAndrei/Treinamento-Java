@@ -9,21 +9,25 @@ import condutores.models.Veiculo;
  * @author Gilson Andrei Oliveira SIlva (gilson.silva@publicatecnologia.com.br)
  */
 public class EventoManutencao extends Evento {
-	private double hodometro;
+	private Double hodometro;
 	private String servicosRealizados;
 
+	public EventoManutencao() {
+
+	}
+
 	public EventoManutencao(Date dataHora, String local, String observacao, Veiculo veiculo,
-	                        double hodometro, String servicosRealizados) {
+	                        Double hodometro, String servicosRealizados) {
 		super(dataHora, local, observacao, veiculo);
 		this.hodometro = hodometro;
 		this.servicosRealizados = servicosRealizados;
 	}
 
-	public double gethodometro() {
+	public Double getHodometro() {
 		return hodometro;
 	}
 
-	public void sethodometro(double hodometro) {
+	public void setHodometro(Double hodometro) {
 		this.hodometro = hodometro;
 	}
 

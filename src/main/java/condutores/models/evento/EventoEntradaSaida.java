@@ -14,6 +14,10 @@ public class EventoEntradaSaida extends Evento {
 	private TipoMovimento tipo;
 	private Condutor condutor;
 
+	public EventoEntradaSaida() {
+
+	}
+
 	public EventoEntradaSaida(Date dataHora, String local, String observacao, Veiculo veiculo,
 	                          TipoMovimento tipo, Condutor condutor) {
 		super(dataHora, local, observacao, veiculo);

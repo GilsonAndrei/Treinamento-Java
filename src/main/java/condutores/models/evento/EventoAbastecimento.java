@@ -10,14 +10,17 @@ import java.util.Date;
  */
 
 public class EventoAbastecimento extends Evento {
-	private double hodometro;
+	private Double hodometro;
 	private TipoCombustivel tipoCombustivel;
-	private double valorLitro;
-	private double litros;
+	private Double valorLitro;
+	private Double litros;
+
+	public EventoAbastecimento() {
+	}
 
 	public EventoAbastecimento(Date dataHora, String local, String observacao, Veiculo veiculo,
-	                           double hodometroOuHorimetroNoMomento, TipoCombustivel tipoCombustivel,
-	                           double valorLitro, double litros) {
+	                           Double hodometroOuHorimetroNoMomento, TipoCombustivel tipoCombustivel,
+	                           Double valorLitro, Double litros) {
 		super(dataHora, local, observacao, veiculo);
 		this.hodometro = hodometroOuHorimetroNoMomento;
 		this.tipoCombustivel = tipoCombustivel;
@@ -25,11 +28,11 @@ public class EventoAbastecimento extends Evento {
 		this.litros = litros;
 	}
 
-	public double getHodometro() {
+	public Double getHodometro() {
 		return hodometro;
 	}
 
-	public void setHodometro(double hodometro) {
+	public void setHodometro(Double hodometro) {
 		this.hodometro = hodometro;
 	}
 
@@ -41,19 +44,19 @@ public class EventoAbastecimento extends Evento {
 		this.tipoCombustivel = tipoCombustivel;
 	}
 
-	public double getValorLitro() {
+	public Double getValorLitro() {
 		return valorLitro;
 	}
 
-	public void setValorLitro(double valorLitro) {
+	public void setValorLitro(Double valorLitro) {
 		this.valorLitro = valorLitro;
 	}
 
-	public double getLitros() {
+	public Double getLitros() {
 		return litros;
 	}
 
-	public void setLitros(double litros) {
+	public void setLitros(Double litros) {
 		this.litros = litros;
 	}
 

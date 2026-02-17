@@ -5,9 +5,17 @@ package condutores.enums;
  */
 public enum TipoCombustivel {
 
-	ETANOL,
-	GASOLINA,
-	DIESEL,
-	GNV
-	
+	GASOLINA("Gasolina"),
+	DIESEL("Diesel"),
+	ETANOL("Etanol");
+
+	private final String descricao;
+
+	TipoCombustivel(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
 }

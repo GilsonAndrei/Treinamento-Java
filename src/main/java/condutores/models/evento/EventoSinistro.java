@@ -14,6 +14,10 @@ public class EventoSinistro extends Evento {
 	private boolean houveEnvolvidos;
 	private String laudo;
 
+	public EventoSinistro() {
+
+	}
+
 	public EventoSinistro(Date dataHora, String local, String observacao, Veiculo veiculo, Condutor condutor, boolean houveVitimas, boolean houveEnvolvidos, String laudo) {
 		super(dataHora, local, observacao, veiculo);
 		this.condutor = condutor;

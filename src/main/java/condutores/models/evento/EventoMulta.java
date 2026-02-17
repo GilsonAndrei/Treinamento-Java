@@ -12,10 +12,14 @@ import condutores.models.Veiculo;
 public class EventoMulta extends Evento {
 	private Condutor condutor;
 	private TipoInfracao tipoInfracao;
-	private int pontosCnh;
-	private double valorMulta;
+	private Integer pontosCnh;
+	private Double valorMulta;
 
-	public EventoMulta(Date dataHora, String local, String observacao, Veiculo veiculo, Condutor condutor, TipoInfracao tipoInfracao, int pontosCnh, double valorMulta) {
+	public EventoMulta() {
+
+	}
+
+	public EventoMulta(Date dataHora, String local, String observacao, Veiculo veiculo, Condutor condutor, TipoInfracao tipoInfracao, Integer pontosCnh, double valorMulta) {
 		super(dataHora, local, observacao, veiculo);
 		this.condutor = condutor;
 		this.tipoInfracao = tipoInfracao;
@@ -39,19 +43,19 @@ public class EventoMulta extends Evento {
 		this.tipoInfracao = tipoInfracao;
 	}
 
-	public int getPontosCnh() {
+	public Integer getPontosCnh() {
 		return pontosCnh;
 	}
 
-	public void setPontosCnh(int pontosCnh) {
+	public void setPontosCnh(Integer pontosCnh) {
 		this.pontosCnh = pontosCnh;
 	}
 
-	public double getValorMulta() {
+	public Double getValorMulta() {
 		return valorMulta;
 	}
 
-	public void setValorMulta(double valorMulta) {
+	public void setValorMulta(Double valorMulta) {
 		this.valorMulta = valorMulta;
 	}
 

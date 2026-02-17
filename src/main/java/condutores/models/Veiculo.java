@@ -10,15 +10,19 @@ import java.util.Date;
  */
 public class Veiculo {
 
-	private long codigo;
+	private Long codigo;
 	private Date dataAquisicao;
-	private int anoFabricacao;
+	private Integer anoFabricacao;
 	private String placa;
 	private String marcaModelo;
 	private TipoControle tipoControle;
-	private double hodometro;
+	private Double hodometro;
 
-	public Veiculo(long codigo, Date dataAquisicao, int anoFabricacao, String placa, String marcaModelo, TipoControle tipoControle, double hodometro) {
+	public Veiculo() {
+
+	}
+
+	public Veiculo(Long codigo, Date dataAquisicao, Integer anoFabricacao, String placa, String marcaModelo, TipoControle tipoControle, Double hodometro) {
 		this.codigo = codigo;
 		this.dataAquisicao = dataAquisicao;
 		this.anoFabricacao = anoFabricacao;
@@ -28,11 +32,11 @@ public class Veiculo {
 		this.hodometro = hodometro;
 	}
 
-	public long getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(long codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -44,11 +48,11 @@ public class Veiculo {
 		this.dataAquisicao = dataAquisicao;
 	}
 
-	public int getAnoFabricacao() {
+	public Integer getAnoFabricacao() {
 		return anoFabricacao;
 	}
 
-	public void setAnoFabricacao(int anoFabricacao) {
+	public void setAnoFabricacao(Integer anoFabricacao) {
 		this.anoFabricacao = anoFabricacao;
 	}
 
@@ -76,11 +80,11 @@ public class Veiculo {
 		this.tipoControle = tipoControle;
 	}
 
-	public double getHodometro() {
+	public Double getHodometro() {
 		return hodometro;
 	}
 
-	public void setHodometro(double hodometro) {
+	public void setHodometro(Double hodometro) {
 		this.hodometro = hodometro;
 	}
 

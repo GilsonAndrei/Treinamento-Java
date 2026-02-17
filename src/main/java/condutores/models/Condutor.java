@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class Condutor {
 
-	private long codigo;
+	private Long codigo;
 	private String cpf;
 	private String nome;
 	private Date dataNascimento;
@@ -15,7 +15,11 @@ public class Condutor {
 	private String categoriaCNH;
 	private Date dataVencimento;
 
-	public Condutor(long codigo, String cpf, String nome, Date dataNascimento, String numeroCNH, String categoriaCNH, Date dataVencimento) {
+	public Condutor() {
+
+	}
+
+	public Condutor(Long codigo, String cpf, String nome, Date dataNascimento, String numeroCNH, String categoriaCNH, Date dataVencimento) {
 		this.codigo = codigo;
 		this.cpf = cpf;
 		this.nome = nome;
@@ -25,11 +29,11 @@ public class Condutor {
 		this.dataVencimento = dataVencimento;
 	}
 
-	public long getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(long codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
