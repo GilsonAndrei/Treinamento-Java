@@ -1,14 +1,21 @@
 package condutores.models.evento;
 
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Date;
 
+import static condutores.util.Tabelas.EVENTOS_ENTRADA_SAIDA;
+import static condutores.util.Tabelas.EVENTOS_MANUTENCAO;
+import condutores.enums.TipoEvento;
 import condutores.models.Veiculo;
 
 /**
  * @author Gilson Andrei Oliveira SIlva (gilson.silva@publicatecnologia.com.br)
  */
 public class EventoManutencao extends Evento {
+	private Long codigo;
 	private Double hodometro;
 	private String servicosRealizados;
 
@@ -16,9 +23,9 @@ public class EventoManutencao extends Evento {
 
 	}
 
-	public EventoManutencao(Date dataHora, String local, String observacao, Veiculo veiculo,
-	                        Double hodometro, String servicosRealizados) {
-		super(dataHora, local, observacao, veiculo);
+	public EventoManutencao(Long codigo, Date dataHora, String local, String observacao, Veiculo veiculo,
+	                        Double hodometro, String servicosRealizados, TipoEvento tipoEvento) {
+		super(codigo, dataHora, local, observacao, veiculo, tipoEvento);
 		this.hodometro = hodometro;
 		this.servicosRealizados = servicosRealizados;
 	}
@@ -50,4 +57,5 @@ public class EventoManutencao extends Evento {
 		getVeiculo().exibirDetalhes();
 		System.out.println();
 	}
+
 }

@@ -1,31 +1,50 @@
 package condutores.models.evento;
 
 import condutores.enums.TipoCombustivel;
+import condutores.enums.TipoEvento;
 import condutores.models.Veiculo;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
+
+import static condutores.util.Tabelas.*;
 
 /**
  * @author Gilson Andrei Oliveira SIlva (gilson.silva@publicatecnologia.com.br)
  */
 
 public class EventoAbastecimento extends Evento {
+	private Long codigo;
 	private Double hodometro;
 	private TipoCombustivel tipoCombustivel;
 	private Double valorLitro;
 	private Double litros;
 
 	public EventoAbastecimento() {
+
 	}
 
-	public EventoAbastecimento(Date dataHora, String local, String observacao, Veiculo veiculo,
+	public EventoAbastecimento(Long codigo, Date dataHora, String local, String observacao, Veiculo veiculo,
 	                           Double hodometroOuHorimetroNoMomento, TipoCombustivel tipoCombustivel,
-	                           Double valorLitro, Double litros) {
-		super(dataHora, local, observacao, veiculo);
+	                           Double valorLitro, Double litros, TipoEvento tipoEvento) {
+		super(codigo, dataHora, local, observacao, veiculo, tipoEvento);
 		this.hodometro = hodometroOuHorimetroNoMomento;
 		this.tipoCombustivel = tipoCombustivel;
 		this.valorLitro = valorLitro;
 		this.litros = litros;
+	}
+
+	@Override
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	@Override
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 
 	public Double getHodometro() {
@@ -74,4 +93,52 @@ public class EventoAbastecimento extends Evento {
 
 		System.out.println();
 	}
+
+	/**@Override public void inserirEvento(Connection conn, Long codigo) {
+	String sql = "INSERT INTO " + EVENTOS_ABASTECIMENTO + " (codigo,hodometro,tipoCombustivel,valorLitro,litros)" +
+	"VALUES(?,?,?,?,?)";
+	try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+	stmt.setLong(1, codigo);
+	stmt.setDouble(2, this.getHodometro());
+	stmt.setString(3, this.getTipoCombustivel().name());
+	stmt.setDouble(4, this.getValorLitro());
+	stmt.setDouble(5, this.getLitros());
+	stmt.executeUpdate();
+	} catch (SQLException e) {
+	throw new RuntimeException(e);
+	}
+	}
+
+	 @Override public void atualizarEvento(Connection conn, Long id) throws SQLException {
+
+	 String sql = "UPDATE " + EVENTOS_ABASTECIMENTO +
+	 " SET hodometro=?, tipoCombustivel=?, valorLitro=?, litros=? " +
+	 "WHERE codigo=?";
+
+	 try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+	 stmt.setDouble(1, this.getHodometro());
+	 stmt.setString(2, this.getTipoCombustivel().name());
+	 stmt.setDouble(3, this.getValorLitro());
+	 stmt.setDouble(4, this.getLitros());
+	 stmt.setLong(5, id);
+
+	 stmt.executeUpdate();
+	 }
+	 }
+
+	 //@Override
+	 public void excluirEvento(Connection conn, Long id) throws SQLException {
+
+	 String sql = "DELETE FROM " + EVENTOS_ABASTECIMENTO +
+	 " WHERE codigo=?";
+
+	 try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+	 stmt.setLong(1, id);
+	 stmt.executeUpdate();
+	 }
+	 }
+
+	 */
 }

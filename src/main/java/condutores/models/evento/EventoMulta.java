@@ -1,7 +1,13 @@
 package condutores.models.evento;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Date;
 
+import static condutores.util.Tabelas.EVENTOS_MANUTENCAO;
+import static condutores.util.Tabelas.EVENTOS_MULTA;
+import condutores.enums.TipoEvento;
 import condutores.enums.TipoInfracao;
 import condutores.models.Condutor;
 import condutores.models.Veiculo;
@@ -10,6 +16,7 @@ import condutores.models.Veiculo;
  * @author Gilson Andrei Oliveira SIlva (gilson.silva@publicatecnologia.com.br)
  */
 public class EventoMulta extends Evento {
+	private Long codigo;
 	private Condutor condutor;
 	private TipoInfracao tipoInfracao;
 	private Integer pontosCnh;
@@ -19,8 +26,8 @@ public class EventoMulta extends Evento {
 
 	}
 
-	public EventoMulta(Date dataHora, String local, String observacao, Veiculo veiculo, Condutor condutor, TipoInfracao tipoInfracao, Integer pontosCnh, double valorMulta) {
-		super(dataHora, local, observacao, veiculo);
+	public EventoMulta(Long codigo, Date dataHora, String local, String observacao, Veiculo veiculo, Condutor condutor, TipoInfracao tipoInfracao, Integer pontosCnh, double valorMulta, TipoEvento tipoEvento) {
+		super(codigo, dataHora, local, observacao, veiculo, tipoEvento);
 		this.condutor = condutor;
 		this.tipoInfracao = tipoInfracao;
 		this.pontosCnh = pontosCnh;
