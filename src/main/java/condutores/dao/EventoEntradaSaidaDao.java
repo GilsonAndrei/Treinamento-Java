@@ -26,8 +26,7 @@ public class EventoEntradaSaidaDao
 
 		EventoDao eventoDao = new EventoDao();
 		eventoDao.inserir(conn, evento);
-
-		// Agora o código já foi gerado
+		//Código geradoo.
 		Long codigoGerado = evento.getCodigo();
 
 		String sql = "INSERT INTO " + EVENTOS_ENTRADA_SAIDA +

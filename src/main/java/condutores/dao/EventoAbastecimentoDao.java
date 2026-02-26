@@ -20,13 +20,19 @@ public class EventoAbastecimentoDao implements IntEventos<EventoAbastecimento> {
 
 	@Override
 	public void inserir(Connection conn, EventoAbastecimento evento) throws SQLException {
+
+		EventoDao eventoDao = new EventoDao();
+		eventoDao.inserir(conn, evento);
+		//Código geradoo.
+		Long codigoGerado = evento.getCodigo();
+
 		String sql = "INSERT INTO " + EVENTOS_ABASTECIMENTO +
 				" (codigo, hodometro, tipoCombustivel, valorLitro, litros) " +
 				"VALUES (?, ?, ?, ?, ?)";
 
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-			stmt.setLong(1, evento.getCodigo());
+			stmt.setLong(1, codigoGerado);
 			stmt.setDouble(2, evento.getHodometro());
 			stmt.setString(3, evento.getTipoCombustivel().name());
 			stmt.setDouble(4, evento.getValorLitro());

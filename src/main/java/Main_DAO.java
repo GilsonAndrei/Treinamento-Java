@@ -75,6 +75,7 @@ public class Main_DAO {
 						TipoMovimento.SAIDA,
 						condutor, TipoEvento.SAIDA
 				);
+
 				eventoDao.inserir(conn, entrada);
 				eventoDao.inserir(conn, saida);
 

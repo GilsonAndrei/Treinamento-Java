@@ -14,13 +14,18 @@ public class EventoSinistroDao {
 
 	public void inserir(Connection conn, EventoSinistro evento) throws SQLException {
 
+		EventoDao eventoDao = new EventoDao();
+		eventoDao.inserir(conn, evento);
+		//Código geradoo.
+		Long codigoGerado = evento.getCodigo();
+
 		String sql = "INSERT INTO " + EVENTOS_SINISTRO +
 				" (codigo, codigoCondutor, houveVitimas, houveEnvolvidos, laudo) " +
 				"VALUES (?, ?, ?, ?, ?)";
 
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-			stmt.setLong(1, evento.getCodigo());
+			stmt.setLong(1, codigoGerado);
 			stmt.setLong(2, evento.getCondutor().getCodigo());
 			stmt.setBoolean(3, evento.isHouveVitimas());
 			stmt.setBoolean(4, evento.isHouveEnvolvidos());

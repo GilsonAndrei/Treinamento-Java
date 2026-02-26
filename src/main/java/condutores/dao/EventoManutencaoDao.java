@@ -17,13 +17,19 @@ public class EventoManutencaoDao
 	public void inserir(Connection conn, EventoManutencao evento)
 			throws SQLException {
 
+
+		EventoDao eventoDao = new EventoDao();
+		eventoDao.inserir(conn, evento);
+		//Código geradoo.
+		Long codigoGerado = evento.getCodigo();
+
 		String sql = "INSERT INTO " + EVENTOS_MANUTENCAO +
 				" (codigo, hodometro, servicosRealizados) " +
 				"VALUES (?, ?, ?)";
 
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-			stmt.setLong(1, evento.getCodigo());
+			stmt.setLong(1, codigoGerado);
 			stmt.setDouble(2, evento.getHodometro());
 			stmt.setString(3, evento.getServicosRealizados());
 
