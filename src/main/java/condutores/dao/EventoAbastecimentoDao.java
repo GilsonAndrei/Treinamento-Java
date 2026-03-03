@@ -11,7 +11,6 @@ import condutores.models.evento.EventoAbastecimento;
 
 import static condutores.util.Tabelas.*;
 
-
 /**
  * @author Gilson Andrei Oliveira SIlva (gilson.silva@publicatecnologia.com.br)
  */

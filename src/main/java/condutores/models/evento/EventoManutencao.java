@@ -10,22 +10,34 @@ import static condutores.util.Tabelas.EVENTOS_ENTRADA_SAIDA;
 import static condutores.util.Tabelas.EVENTOS_MANUTENCAO;
 import condutores.enums.TipoEvento;
 import condutores.models.Veiculo;
+import condutores.util.Tabelas;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.Table;
 
 /**
  * @author Gilson Andrei Oliveira SIlva (gilson.silva@publicatecnologia.com.br)
  */
+@Entity
+@Table(name = EVENTOS_MANUTENCAO)
+@PrimaryKeyJoinColumn(name = "codigoEvento")
+
 public class EventoManutencao extends Evento {
-	private Long codigo;
+
+	@Column(nullable = false)
 	private Double hodometro;
+
+	@Column(nullable = false, length = 1000)
 	private String servicosRealizados;
 
 	public EventoManutencao() {
 
 	}
 
-	public EventoManutencao(Long codigo, Date dataHora, String local, String observacao, Veiculo veiculo,
+	public EventoManutencao(Date dataHora, String local, String observacao, Veiculo veiculo,
 	                        Double hodometro, String servicosRealizados, TipoEvento tipoEvento) {
-		super(codigo, dataHora, local, observacao, veiculo, tipoEvento);
+		super(null, dataHora, local, observacao, veiculo, tipoEvento);
 		this.hodometro = hodometro;
 		this.servicosRealizados = servicosRealizados;
 	}

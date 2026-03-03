@@ -11,23 +11,45 @@ import condutores.enums.TipoEvento;
 import condutores.enums.TipoInfracao;
 import condutores.models.Condutor;
 import condutores.models.Veiculo;
+import condutores.util.Tabelas;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.Table;
 
 /**
  * @author Gilson Andrei Oliveira SIlva (gilson.silva@publicatecnologia.com.br)
  */
+@Entity
+@Table(name = EVENTOS_MULTA)
+@PrimaryKeyJoinColumn(name = "codigoEvento")
 public class EventoMulta extends Evento {
-	private Long codigo;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "codigoCondutor", nullable = false)
 	private Condutor condutor;
+
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, length = 20)
 	private TipoInfracao tipoInfracao;
+
+	@Column(nullable = false)
 	private Integer pontosCnh;
+	
+	@Column(nullable = false)
 	private Double valorMulta;
 
 	public EventoMulta() {
 
 	}
 
-	public EventoMulta(Long codigo, Date dataHora, String local, String observacao, Veiculo veiculo, Condutor condutor, TipoInfracao tipoInfracao, Integer pontosCnh, double valorMulta, TipoEvento tipoEvento) {
-		super(codigo, dataHora, local, observacao, veiculo, tipoEvento);
+	public EventoMulta(Date dataHora, String local, String observacao, Veiculo veiculo, Condutor condutor, TipoInfracao tipoInfracao, Integer pontosCnh, double valorMulta, TipoEvento tipoEvento) {
+		super(null, dataHora, local, observacao, veiculo, tipoEvento);
 		this.condutor = condutor;
 		this.tipoInfracao = tipoInfracao;
 		this.pontosCnh = pontosCnh;

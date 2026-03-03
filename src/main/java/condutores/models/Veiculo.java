@@ -2,20 +2,49 @@ package condutores.models;
 
 
 import condutores.enums.TipoControle;
+import condutores.util.Tabelas;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 import java.util.Date;
 
 /**
  * @author Gilson Andrei Oliveira SIlva (gilson.silva@publicatecnologia.com.br)
  */
-public class Veiculo {
+@Entity
+@Table(name = Tabelas.VEICULOS)
 
+public class Veiculo {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "dataAquisicao", nullable = false)
 	private Date dataAquisicao;
+
+	@Column(name = "anoFabricacao", nullable = false, length = 4)
 	private Integer anoFabricacao;
+
+	@Column(name = "placa", nullable = false, length = 10)
 	private String placa;
+
+	@Column(name = "marcaModelo", nullable = false, length = 100)
 	private String marcaModelo;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tipoControle", length = 20, nullable = false)
 	private TipoControle tipoControle;
+
+	@Column(name = "hodometro", nullable = false)
 	private Double hodometro;
 
 	public Veiculo() {

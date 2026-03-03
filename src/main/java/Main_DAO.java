@@ -56,7 +56,6 @@ public class Main_DAO {
 				EventoEntradaSaidaDao eventoDao = new EventoEntradaSaidaDao();
 
 				EventoEntradaSaida entrada = new EventoEntradaSaida(
-						null,
 						Date.valueOf("2026-01-01"),
 						"Garagem",
 						"Entrada teste",
@@ -67,7 +66,6 @@ public class Main_DAO {
 				);
 
 				EventoEntradaSaida saida = new EventoEntradaSaida(
-						null,
 						Date.valueOf("2026-01-02"),
 						"Rodovia BR-101",
 						"Saída para viagem",

@@ -2,17 +2,42 @@ package condutores.models;
 
 import java.util.Date;
 
+import condutores.util.Tabelas;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+
 /**
  * @author Gilson Andrei Oliveira SIlva (gilson.silva@publicatecnologia.com.br)
  */
-public class Condutor {
+@Entity()
+@Table(name = Tabelas.CONDUTORES)
 
+public class Condutor {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
+	@Column(name = "cpf", nullable = false, unique = true, length = 14)
 	private String cpf;
+	@Column(name = "nome", nullable = false, length = 100)
 	private String nome;
+	@Temporal(TemporalType.DATE)
+	/** Temporarl é obrigatório quando usa java.util.Date, para o JPA saber se é Data, TIme, TIMESTAMP*/
+	@Column(name = "dataNascimento")
 	private Date dataNascimento;
+	@Column(name = "NumeroCNH", length = 20, unique = true)
 	private String numeroCNH;
+	@Column(name = "categoriaCNH", length = 5)
 	private String categoriaCNH;
+	/**
+	 * Temporarl é obrigatório quando usa java.util.Date, para o JPA saber se é Data, TIme, TIMESTAMP
+	 */
+	@Column(name = "dataVencimento")
 	private Date dataVencimento;
 
 	public Condutor() {

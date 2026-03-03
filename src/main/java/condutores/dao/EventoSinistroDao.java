@@ -86,7 +86,7 @@ public class EventoSinistroDao {
 
 					evento.setCondutor(condutor);
 					evento.setHouveVitimas(rs.getBoolean("houveVitimas"));
-					evento.setHouveOutrosEnvolvidos(rs.getBoolean("houveEnvolvidos"));
+					evento.setHouveEnvolvidos(rs.getBoolean("houveEnvolvidos"));
 					evento.setLaudo(rs.getString("laudo"));
 
 					return evento;
